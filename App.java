@@ -20,6 +20,14 @@ public class App {
     public static void main( String[] args ){
         
     	selectPersonFromList("M", "l", COUNT_TAKE);
+    	
+    	    	
+    }
+    
+    public static void sendHttpRequests(){
+
+    	
+    	
     }
     
     public static void selectPersonFromList(String prefix, String ends, int count){
@@ -29,14 +37,16 @@ public class App {
     	lists.add("April");
     	lists.add("Miguel");
     	lists.add("Mary");
+    	
     	Observable<String> obs = Observable.from(lists)
     			.filter(v -> v.startsWith(prefix))
     			.filter(c -> c.endsWith(ends));
     			
+    			
     	Observable<String> obs2 = obs.take(count);
     	
     	obs2.subscribe(
-    					args-> System.out.println(args) 
+    					args-> System.out.println(args)
     				);
     }
     
